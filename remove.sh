@@ -9,11 +9,7 @@ if [[ ! -d "/Volumes/macOS Base System" ]]; then
 	exit -1
 fi
 
-if [[ $(ls /Volumes/Data/Library/LaunchAgents/com.sentinelone.*) ]]; then
-	volume=/Volumes/Data
-elif [[ $(ls /Volumes/SYSTEM/Library/LaunchAgents/com.sentinelone.*) ]]; then
-	volume=/Volumes/SYSTEM
-else
+if [[ ! -f /Volumes/Data/Library/LaunchAgents/com.sentinelone.agent ]]; then
 	echo "S1 not found"
 	exit -1
 fi
@@ -36,3 +32,4 @@ done
 echo "done."
 
 exit 0
+
