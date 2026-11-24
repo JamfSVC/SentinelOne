@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "------------------------------"
-echo "Uninstall Sentinel One"
+echo "Uninstall Sentinel One 1.1"
 echo "------------------------------"
 
 if [[ ! -d "/Volumes/macOS Base System" ]]; then
