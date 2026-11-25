@@ -9,7 +9,7 @@ if [[ ! -d "/Volumes/macOS Base System" ]]; then
 	exit -1
 fi
 
-volume=/Volumes/Data
+volume=$(ls /Volumes | grep Data)
 
 if [[ ! -f $volume/Library/LaunchAgents/com.sentinelone.agent ]]; then
 	echo "S1 not found"
@@ -18,14 +18,14 @@ fi
 
 echo "deleting from $volume:"
 
-rm -rf $volume/Library/LaunchAgents/com.sentinelone.*
-rm -rf $volume/Library/LaunchDaemons/com.sentinelone.*
-rm -rf $volume/Library/Preferences/Logging/Subsystems/com.sentinelone.*
-rm -rf $volume/Library/Extensions/Sentinel.kext
-rm -rf $volume/Library/Sentinel
-rm -rf $volume/Applications/SentinelOne
+rm -rf "$volume"/Library/LaunchAgents/com.sentinelone.*
+rm -rf "$volume"/Library/LaunchDaemons/com.sentinelone.*
+rm -rf "$volume"/Library/Preferences/Logging/Subsystems/com.sentinelone.*
+rm -rf "$volume"/Library/Extensions/Sentinel.kext
+rm -rf "$volume"/Library/Sentinel
+rm -rf "$volume"/Applications/SentinelOne
 
-for name in $volume/Library/SystemExtensions/* ; do
+for name in "$volume"/Library/SystemExtensions/* ; do
 	if [[ -d "${name}/com.sentinelone.network-monitoring.systemextension" ]]; then
 		rm -rf "$name"
 	fi
