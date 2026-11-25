@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "------------------------------"
-echo "Uninstall Sentinel One 1.3"
+echo "Uninstall Sentinel One 1.4"
 echo "------------------------------"
 
 if [[ ! -d "/Volumes/macOS Base System" ]]; then
@@ -9,7 +9,7 @@ if [[ ! -d "/Volumes/macOS Base System" ]]; then
 	exit -1
 fi
 
-volume=$(ls /Volumes | grep Data)
+volume=/Volumes/$(ls /Volumes | grep Data)
 
 if [[ ! -f "$volume"/Library/LaunchAgents/com.sentinelone.agent ]]; then
 	echo "S1 not found"
