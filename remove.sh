@@ -11,7 +11,7 @@ fi
 
 volume=$(ls /Volumes | grep Data)
 
-if [[ ! -f $volume/Library/LaunchAgents/com.sentinelone.agent ]]; then
+if [[ ! -f "$volume"/Library/LaunchAgents/com.sentinelone.agent ]]; then
 	echo "S1 not found"
 	exit -1
 fi
